@@ -61,13 +61,16 @@ else:
         elif choice == "3":
             customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
             if customer_pin_justify == customer_pin:
-                invest_amount_just = float(input("Enter your investment amount:"))
+                invest_amount_just = float(input("Enter your investment amount that you can give at least(It is not final investment amount,just for justify):"))
                 max_withdrawable = current_balance - 1000
                 if invest_amount_just < max_withdrawable:
                     print("      Select a offer    ")
                     print("(a) 5% interest per year and lowest investment 50000 BDT. ")
                     print("(b) 8% interest per year and lowest investment 80000 BDT. ")
                     print("(c) 15% interest per year and lowest investment 150000 BDT. ")
+                    print("(d) 20% interest per year and lowest investment 200000 BDT.")
+                    print("(e) 24% interest per year and lowest investment 240000 BDT.")
+                    print("(f) 30% interest per year and lowest investment 300000 BDT.")
                     offer_invest = input("Enter your offer no.-a,b,or c:")
                     invest_amount = float(input("Enter your investment amount:"))
                     invest_year = int(input("Enter your investment year:"))
@@ -101,8 +104,32 @@ else:
                             print(f"Your total amount will be {total_amount} BDT. ")
                         else:
                             print("You must need to invest 150000 BDT or more than this amount.")
+                    elif offer_invest == "d":
+                        if invest_amount >= 200000:
+                            interest_rate = 0.20 * invest_year
+                            total_interest = invest_amount * interest_rate
+                            total_amount = invest_amount + total_interest
+                            print(f"You invested {invest_amount} BDT succesfully. ")
+                            print(f"You will get {total_interest} BDT interest. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                    elif offer_invest == "e":
+                        if invest_amount >= 240000:
+                            interest_rate = 0.24 * invest_year
+                            total_interest = invest_amount * interest_rate
+                            total_amount = invest_amount + total_interest
+                            print(f"You invested {invest_amount} BDT succesfully. ")
+                            print(f"You will get {total_interest} BDT interest. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                    elif offer_invest == "f":
+                        if invest_amount >= 300000:
+                            interest_rate = 0.30 * invest_year
+                            total_interest = invest_amount * interest_rate
+                            total_amount = invest_amount + total_interest
+                            print(f"You invested {invest_amount} BDT succesfully. ")
+                            print(f"You will get {total_interest} BDT interest. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
                     else:
-                        print("You need to type only a, b, or c .")
+                        print("You need to type only a, b, c, d, e or f .")
             else:
                 print("You used incorrect pin.")
 
