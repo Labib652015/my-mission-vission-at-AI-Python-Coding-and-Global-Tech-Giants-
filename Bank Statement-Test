@@ -42,7 +42,7 @@ else:
                     print("Invalid deposit amount.")
             else:
                 print("Your pin is incorrect.")
-                
+
         elif choice == "2":
             customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
             if customer_pin_justify == customer_pin:
@@ -51,13 +51,13 @@ else:
                 withdraw = float(input("Enter your withdraw amount: "))
 
                 if 0 < withdraw <= max_withdrawable:
-                    current_balance = current_balance - withdraw - invest_amount
+                    current_balance = current_balance - withdraw 
                     print(f"You withdrew {withdraw} BDT successfully. Your current balance is {current_balance} BDT.")
                 else:
                     print("You do not have enough balance or entered an invalid amount.")
             else:
                 print("Your pin is incorrect.")
-        
+
         elif choice == "3":
             customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
             if customer_pin_justify == customer_pin:
@@ -74,6 +74,7 @@ else:
                     offer_invest = input("Enter your offer no.-a,b,c,d,e,or f:")
                     invest_amount = float(input("Enter your investment amount:"))
                     invest_year = int(input("Enter your investment year:"))
+                    current_balance = current_balance - invest_amount
                     if offer_invest == "a":
                         if invest_amount >= 50000:
                             interest_rate = 0.05 * invest_year
@@ -82,6 +83,7 @@ else:
                             print(f"You invested {invest_amount} BDT succesfully. ")
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to invest 50000 BDT or more than tis amount..")
                     elif offer_invest == "b":
@@ -92,6 +94,7 @@ else:
                             print(f"You invested {invest_amount} BDT succesfully. ")
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to invest 80000 BDT or more than this amount.")
                     elif offer_invest == "c":
@@ -102,6 +105,7 @@ else:
                             print(f"You invested {invest_amount} BDT succesfully. ")
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to invest 150000 BDT or more than this amount.")
                     elif offer_invest == "d":
@@ -112,6 +116,10 @@ else:
                             print(f"You invested {invest_amount} BDT succesfully. ")
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
+                        else:
+                          print("You must need to invest 200000 BDT or more than this amount.")
+
                     elif offer_invest == "e":
                         if invest_amount >= 240000:
                             interest_rate = 0.24 * invest_year
@@ -120,6 +128,9 @@ else:
                             print(f"You invested {invest_amount} BDT succesfully. ")
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
+                        else:
+                            print("You must need to invest 240000 BDT or more than this amount.")
                     elif offer_invest == "f":
                         if invest_amount >= 300000:
                             interest_rate = 0.30 * invest_year
@@ -128,8 +139,15 @@ else:
                             print(f"You invested {invest_amount} BDT succesfully. ")
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
+                            
+                        else:
+                          print("You must need to invest 240000 BDT or more than this amount.")
+
                     else:
-                        print("You need to type only a, b, c, d, e or f .")
+                      print("You need to type only a, b, c, d, e or f .")
+                else:
+                  print("At first deposit to your account to make the balance at least 51000 BDT . ")      
             else:
                 print("You used incorrect pin.")
 
@@ -149,6 +167,7 @@ else:
                     offer_loan = input("Enter your offer no.-a,b,c,d,e,or f:")
                     loan_amount = float(input("Enter your loan amount:"))
                     loan_year = int(input("Enter your loan year:"))
+                    current_balance = current_balance + loan_amount
                     if offer_loan == "a":
                         if loan_amount >= 50000:
                             vat_rate = 0.05 * loan_year
@@ -157,6 +176,7 @@ else:
                             print(f"You loaned {loan_amount} BDT succesfully. ")
                             print(f"You will give {total_vat} BDT vat. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to loan 50000 BDT or more than this amount.")
                     elif offer_loan == "b":
@@ -167,6 +187,7 @@ else:
                             print(f"You loaned {loan_amount} BDT succesfully. ")
                             print(f"You will give {total_vat} BDT vat. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to loan 80000 BDT or more than this amount.")
                     elif offer_loan == "c":
@@ -177,9 +198,10 @@ else:
                             print(f"You loaned {loan_amount} BDT succesfully. ")
                             print(f"You will give {total_vat} BDT vat. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to loan 150000 BDT or more than this amount.")
-                    if offer_loan == "d":
+                    elif offer_loan == "d":
                         if loan_amount >= 200000:
                             vat_rate = 0.20 * loan_year
                             total_vat = loan_amount * vat_rate
@@ -187,9 +209,10 @@ else:
                             print(f"You loaned {loan_amount} BDT succesfully. ")
                             print(f"You will give {total_vat} BDT vat. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                           print("You must need to loan 200000 BDT or more than this amount.")
-                    if offer_loan == "e":
+                    elif offer_loan == "e":
                         if loan_amount >= 240000:
                             vat_rate = 0.24 * loan_year
                             total_vat = loan_amount * vat_rate
@@ -197,9 +220,10 @@ else:
                             print(f"You loaned {loan_amount} BDT succesfully. ")
                             print(f"You will give {total_vat} BDT vat. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to loan 240000 BDT or more than this amount.")
-                    if offer_loan == "f":
+                    elif offer_loan == "f":
                         if loan_amount >= 300000:
                             vat_rate = 0.30 * loan_year
                             total_vat = loan_amount * vat_rate
@@ -207,9 +231,10 @@ else:
                             print(f"You loaned {loan_amount} BDT succesfully. ")
                             print(f"You will give {total_vat} BDT vat. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
+                            print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to loan 300000 BDT or more than this amount.")
-                    
+
                     else:
                         print("You need to type only a, b, c, d, e, or f .")
             else:
@@ -224,7 +249,7 @@ else:
                 print(f"Account Holder's Birth Year: {customer_birth_year}")
                 print(f"Your current balance: {current_balance} BDT")
             else:
-                print("Your pin is incorrect.") 
+                print("Your pin is incorrect.")
 
         elif choice == "6":
             print("Thank you for spending your important time in our Bangladesh Bank.")
