@@ -1,0 +1,173 @@
+import getpass
+
+print("You are welcomed to our Bangladesh Bank")
+customer_name = input("Enter your name: ")
+customer_age = int(input("Enter your age: "))
+customer_account = input("Enter your account name: ")
+
+while True:
+    customer_pin = getpass.getpass("Set up your 15-digit pin: ")
+    if len(customer_pin) == 15:
+        print("PIN created successfully!")
+        break
+    else:
+        print("Error: PIN must be exactly 15 digits long. Please try again.")
+
+print(f"\nWelcome {customer_name}")
+customer_birth_year = 2026 - customer_age
+current_balance = 1000.0
+
+if customer_age < 18:
+    print("You need to be an adult to hold an account.")
+else:
+    while True:
+        print("\n    Options    ")
+        print("1. Deposit")
+        print("2. Withdraw")
+        print("5. Your account details")
+        print("3. Invest")
+        print("4. Take Loan")
+        print("6. Cancel")
+
+        choice = input("Write your option no. You can only use 1, 2, 3, 4, 5, or 6.: ")
+
+        if choice == "1":
+            customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
+            if customer_pin_justify == customer_pin:
+                deposit = float(input("Enter your deposit amount: "))
+                if deposit > 0:
+                    current_balance = current_balance + deposit
+                    print(f"You successfully deposited {deposit} BDT. Your current balance is {current_balance} BDT.")
+                else:
+                    print("Invalid deposit amount.")
+            else:
+                print("Your pin is incorrect.")
+                
+        elif choice == "2":
+            customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
+            if customer_pin_justify == customer_pin:
+                max_withdrawable = current_balance - 1000
+                print(f"Remember: Your withdrawal amount must leave at least 1000 BDT remaining. Max withdrawable: {max_withdrawable} BDT.")
+                withdraw = float(input("Enter your withdraw amount: "))
+
+                if 0 < withdraw <= max_withdrawable:
+                    current_balance = current_balance - withdraw
+                    print(f"You withdrew {withdraw} BDT successfully. Your current balance is {current_balance} BDT.")
+                else:
+                    print("You do not have enough balance or entered an invalid amount.")
+            else:
+                print("Your pin is incorrect.")
+        
+        elif choice == "3":
+            customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
+            if customer_pin_justify == customer_pin:
+                invest_amount_just = float(input("Enter your investment amount:"))
+                max_withdrawable = current_balance - 1000
+                if invest_amount_just < max_withdrawable:
+                    print("      Select a offer    ")
+                    print("(a) 5% interest per year and lowest investment 50000 BDT. ")
+                    print("(b) 8% interest per year and lowest investment 80000 BDT. ")
+                    print("(c) 15% interest per year and lowest investment 150000 BDT. ")
+                    offer_invest = input("Enter your offer no.-a,b,or c:")
+                    invest_amount = float(input("Enter your investment amount:"))
+                    invest_year = int(input("Enter your investment year:"))
+                    if offer_invest == "a":
+                        if invest_amount >= 50000:
+                            interest_rate = 0.05 * invest_year
+                            total_interest = invest_amount * interest_rate
+                            total_amount = invest_amount + total_interest
+                            print(f"You invested {invest_amount} BDT succesfully. ")
+                            print(f"You will get {total_interest} BDT interest. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                        else:
+                            print("You must need to invest 50000 BDT or more than tis amount..")
+                    elif offer_invest == "b":
+                        if invest_amount >= 80000:
+                            interest_rate = 0.08 * invest_year
+                            total_interest = invest_amount * interest_rate
+                            total_amount = invest_amount + total_interest
+                            print(f"You invested {invest_amount} BDT succesfully. ")
+                            print(f"You will get {total_interest} BDT interest. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                        else:
+                            print("You must need to invest 80000 BDT or more than this amount.")
+                    elif offer_invest == "c":
+                        if invest_amount >= 150000:
+                            interest_rate = 0.15 * invest_year
+                            total_interest = invest_amount * interest_rate
+                            total_amount = invest_amount + total_interest
+                            print(f"You invested {invest_amount} BDT succesfully. ")
+                            print(f"You will get {total_interest} BDT interest. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                        else:
+                            print("You must need to invest 150000 BDT or more than this amount.")
+                    else:
+                        print("You need to type only a, b, or c .")
+            else:
+                print("You used incorrect pin.")
+
+        elif choice == "4":
+            customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
+            if customer_pin_justify == customer_pin:
+                loan_amount_just = float(input("Enter your loan amount:"))
+                max_withdrawable = current_balance - 1000
+                if loan_amount_just < max_withdrawable:
+                    print("      Select a offer    ")
+                    print("(a) 5% vat per year and lowest loan 50000 BDT. ")
+                    print("(b) 8% vat per year and lowest loan 80000 BDT. ")
+                    print("(c) 15% vat per year and lowest loan 150000 BDT. ")
+                    offer_loan = input("Enter your offer no.-a,b,or c:")
+                    loan_amount = float(input("Enter your loan amount:"))
+                    loan_year = int(input("Enter your loan year:"))
+                    if offer_loan == "a":
+                        if loan_amount >= 50000:
+                            vat_rate = 0.05 * loan_year
+                            total_vat = loan_amount * vat_rate
+                            total_amount = loan_amount - total_vat
+                            print(f"You loaned {loan_amount} BDT succesfully. ")
+                            print(f"You will give {total_vat} BDT vat. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                        else:
+                            print("You must need to loan 50000 BDT or more than this amount.")
+                    elif offer_loan == "b":
+                        if loan_amount >= 80000:
+                            vat_rate = 0.08 * loan_year
+                            total_vat = loan_amount * vat_rate
+                            total_amount = loan_amount - total_vat
+                            print(f"You loaned {loan_amount} BDT succesfully. ")
+                            print(f"You will give {total_vat} BDT vat. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                        else:
+                            print("You must need to loan 80000 BDT or more than this amount.")
+                    elif offer_loan == "c":
+                        if loan_amount >= 150000:
+                            vat_rate = 0.15 * loan_year
+                            total_vat = loan_amount * vat_rate
+                            total_amount = loan_amount - total_vat
+                            print(f"You loaned {loan_amount} BDT succesfully. ")
+                            print(f"You will give {total_vat} BDT vat. ")
+                            print(f"Your total amount will be {total_amount} BDT. ")
+                        else:
+                            print("You must need to loan 150000 BDT or more than this amount.")
+                    else:
+                        print("You need to type only a, b, or c .")
+            else:
+                print("You used incorrect pin.")
+
+        elif choice == "5":
+            customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
+            if customer_pin_justify == customer_pin:
+                print("\n          Account Details          ")
+                print(f"Account Name: {customer_account}")
+                print(f"Account Holder: {customer_name}")
+                print(f"Account Holder's Birth Year: {customer_birth_year}")
+                print(f"Your current balance: {current_balance} BDT")
+            else:
+                print("Your pin is incorrect.") 
+
+        elif choice == "6":
+            print("Thank you for spending your important time in our Bangladesh Bank.")
+            break
+
+        else:
+            print("You chose wrong option. Please select 1, 2, 3, 4, 5, or 6.")
