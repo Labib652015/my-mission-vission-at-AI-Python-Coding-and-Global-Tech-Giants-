@@ -24,9 +24,9 @@ else:
         print("\n    Options    ")
         print("1. Deposit")
         print("2. Withdraw")
-        print("5. Your account details")
         print("3. Invest")
         print("4. Take Loan")
+        print("5. Your account details")
         print("6. Cancel")
 
         choice = input("Write your option no. You can only use 1, 2, 3, 4, 5, or 6.: ")
@@ -51,7 +51,7 @@ else:
                 withdraw = float(input("Enter your withdraw amount: "))
 
                 if 0 < withdraw <= max_withdrawable:
-                    current_balance = current_balance - withdraw
+                    current_balance = current_balance - withdraw - invest_amount
                     print(f"You withdrew {withdraw} BDT successfully. Your current balance is {current_balance} BDT.")
                 else:
                     print("You do not have enough balance or entered an invalid amount.")
