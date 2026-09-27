@@ -146,17 +146,18 @@ else:
                             print(f"You will get {total_interest} BDT interest. ")
                             print(f"Your total amount will be {total_amount} BDT. ")
                             print(f"Your current balance {current_balance} BDT.")
-                    if offer_invest == "g":
-                        print("This offer isn't available now")
-                    if offer_invest == "h":
-                        print("This offer isn't available now")
-                    if offer_invest == "i":
-                        print("This offer isn't available now")
-                    if offer_invest == "j":
-                        print("This offer isn't available now")  
-                            
                         else:
                           print("You must need to invest 240000 BDT or more than this amount.")
+                    elif offer_invest == "g":
+                        print("This offer isn't available now")
+                    elif offer_invest == "h":
+                        print("This offer isn't available now")
+                    elif offer_invest == "i":
+                        print("This offer isn't available now")
+                    elif offer_invest == "j":
+                        print("This offer isn't available now")  
+                            
+
 
                     else:
                       print("You need to type only a, b, c, d, e or f .")
@@ -253,13 +254,13 @@ else:
                             print(f"Your current balance {current_balance} BDT.")
                         else:
                             print("You must need to loan 300000 BDT or more than this amount.")
-                                        if offer_loan == "g":
+                    elif offer_loan == "g":
                         print("This offer isn't available now")
-                    if offer_loan == "h":
+                    elif offer_loan == "h":
                         print("This offer isn't available now")
-                    if offer_loan == "i":
+                    elif offer_loan == "i":
                         print("This offer isn't available now")
-                    if offer_loan == "j":
+                    elif offer_loan == "j":
                         print("This offer isn't available now") 
 
                     else:
