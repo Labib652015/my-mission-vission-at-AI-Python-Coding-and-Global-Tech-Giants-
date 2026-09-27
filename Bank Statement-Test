@@ -31,7 +31,7 @@ else:
         print("7. Your account details")
         print("8. Cancel")
 
-        choice = input("Write your option no. You can only use 1, 2, 3, 4, 7, or 8(option no.6 and 7 aren't available now): ")
+        choice = input("Write your option no. You can only use 1, 2, 3, 4, 5, 7, or 8(option no.6 isn't available now): ")
 
         if choice == "1":
             customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
@@ -268,8 +268,51 @@ else:
             else:
                 print("You used incorrect pin.")
         elif choice == "5":
-            print("This service isn't available now")
-
+            customer_pin_justify = getpass.getpass("Enter your 15-digit pin: ")
+            if customer_pin_justify == customer_pin:
+                print("\n--- Donation Sectors ---")
+                print("a. Relief for Flood-affected People ")
+                print("b. Help for Debt-burdened People ")
+                print("c. Treatment for Sick People ")
+                
+                sector_choice = input("Choose a sector (a, b, or c): ")
+                
+                if sector_choice == "a":
+                    donate_amount = float(input("Enter donation amount(at least 2500 BDT): "))
+                    max_donatable = current_balance - 1000
+                    
+                    if 2500 < donate_amount <= max_donatable:
+                        current_balance -= donate_amount
+                        print(f"Successfully donated {donate_amount} BDT!")
+                        print(f"Your remaining balance is {current_balance} BDT.")
+                    else:
+                        print("Invalid amount or insufficient balance. You must keep at least 1000 BDT and the amount need to be at least 2500 BDT.")
+                else:
+                    print("Invalid sector option. Please select a, b, or c.")
+                if sector_choice == "b":
+                    donate_amount = float(input("Enter donation amount(at least 3500 BDT): "))
+                    max_donatable = current_balance - 1000
+                    
+                    if 3500 < donate_amount <= max_donatable:
+                        current_balance -= donate_amount
+                        print(f"Successfully donated {donate_amount} BDT!")
+                        print(f"Your remaining balance is {current_balance} BDT.")
+                    else:
+                        print("Invalid amount or insufficient balance. You must keep at least 1000 BDT and the amount need to be at least 3500 BDT.")
+                if sector_choice == "c":
+                    donate_amount = float(input("Enter donation amount(at least 1500 BDT): "))
+                    max_donatable = current_balance - 1000
+                    
+                    if 1500 < donate_amount <= max_donatable:
+                        current_balance -= donate_amount
+                        print(f"Successfully donated {donate_amount} BDT!")
+                        print(f"Your remaining balance is {current_balance} BDT.")
+                    else:
+                        print("Invalid amount or insufficient balance. You must keep at least 1000 BDT and the amount need to be at least 1500 BDT.")
+                else:
+                    print("Invalid sector option. Please select a, b, or c.")
+            else:
+                print("Your pin is incorrect.")
 
         elif choice == "6":
             print("This service isn't available now")
@@ -291,4 +334,4 @@ else:
             break
 
         else:
-            print("You chose wrong option. Please select 1, 2, 3, 4, 5, or 6.")
+            print("You chose wrong option. Please select 1, 2, 3, 4, 5, 7, or 8.")
