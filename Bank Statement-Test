@@ -16,6 +16,7 @@ while True:
 print(f"\nWelcome {customer_name}")
 customer_birth_year = 2026 - customer_age
 current_balance = 1000.0
+total_donation = 0.0
 
 if customer_age < 18:
     print("You need to be an adult to hold an account.")
@@ -280,6 +281,8 @@ else:
                 if sector_choice == "a":
                     donate_amount = float(input("Enter donation amount(at least 2500 BDT): "))
                     max_donatable = current_balance - 1000
+                    current_balance -= donate_amount
+                    total_donation += donate_amount  
                     
                     if 2500 < donate_amount <= max_donatable:
                         current_balance -= donate_amount
@@ -289,9 +292,11 @@ else:
                         print("Invalid amount or insufficient balance. You must keep at least 1000 BDT and the amount need to be at least 2500 BDT.")
                 else:
                     print("Invalid sector option. Please select a, b, or c.")
-                if sector_choice == "b":
+                elif sector_choice == "b":
                     donate_amount = float(input("Enter donation amount(at least 3500 BDT): "))
                     max_donatable = current_balance - 1000
+                    current_balance -= donate_amount
+                    total_donation += donate_amount  
                     
                     if 3500 < donate_amount <= max_donatable:
                         current_balance -= donate_amount
@@ -299,9 +304,11 @@ else:
                         print(f"Your remaining balance is {current_balance} BDT.")
                     else:
                         print("Invalid amount or insufficient balance. You must keep at least 1000 BDT and the amount need to be at least 3500 BDT.")
-                if sector_choice == "c":
+                elif sector_choice == "c":
                     donate_amount = float(input("Enter donation amount(at least 1500 BDT): "))
                     max_donatable = current_balance - 1000
+                    current_balance -= donate_amount
+                    total_donation += donate_amount  
                     
                     if 1500 < donate_amount <= max_donatable:
                         current_balance -= donate_amount
@@ -326,6 +333,7 @@ else:
                 print(f"Account Holder: {customer_name}")
                 print(f"Account Holder's Birth Year: {customer_birth_year}")
                 print(f"Your current balance: {current_balance} BDT")
+                print(f"Total Donation: {total_donation} BDT")
             else:
                 print("Your pin is incorrect.")
 
