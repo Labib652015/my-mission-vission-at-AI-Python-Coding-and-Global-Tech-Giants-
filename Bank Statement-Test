@@ -287,7 +287,7 @@ else:
                 print("Your pin is incorrect.")
 
         elif choice == "8":
-            print("Thank you for spending your important time in our Bangladesh Bank.")
+            print("Thank you for spending your important time in our Pi Bank.")
             break
 
         else:
